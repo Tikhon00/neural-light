@@ -60,8 +60,14 @@ open "build/NEURAL LIGHT.app"
 | Нативный clock, GPU, захват, WebSocket и UDP | `native/Sources/NeuralRuntime/` |
 | Окно Mac, файлы, разрешения bundle | `native/Sources/NeuralLightApp/`, `scripts/build-app.sh` |
 | CLI движка и CPU-бенчмарк | `native/Sources/NeuralLight/main.swift` |
+| Прошивка ESP32: Wi-Fi, настройки, LED | `firmware/src/main.cpp`, `firmware/include/SetupPage.h` |
+| Приём DDP на ESP32 и тесты | `firmware/include/FrameReceiver.h`, `firmware/tests/` |
+| Веб-установщик и его проверки | `installer/`, `installer/playwright.config.ts` |
+| Сборка и публикация прошивки | `firmware/platformio.ini`, `scripts/export-firmware.py`, `.github/workflows/firmware.yml` |
 
 `styles.css` импортирует стили профессиональных панелей; специализированные стили подключаются из `App.tsx` после него. Проверяй порядок и специфичность селекторов, прежде чем добавлять очередное переопределение.
+
+Собственная прошивка NODE описана отдельно в [FIRMWARE.md](FIRMWARE.md). Она получает готовый RGB-кадр от Mac; FFT и эффекты остаются в движке. Не переноси тяжёлый рендеринг на ESP32 ради изменения вида редактора. Установщик собирается отдельно (`npm run installer:build`), Mac-приложение не загружает его библиотеки.
 
 ## Изменение светового алгоритма требует согласования трёх реализаций
 

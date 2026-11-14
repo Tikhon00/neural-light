@@ -353,7 +353,7 @@ test("simulator never pretends to enable a real controller", async ({
   await page.goto("/");
   await openTool(page, "Устройства");
   await page
-    .getByRole("button", { name: "Добавить WLED", exact: true })
+    .getByRole("button", { name: "Добавить контроллер", exact: true })
     .click();
   await page
     .getByRole("textbox", { name: "IP-адрес или .local", exact: true })

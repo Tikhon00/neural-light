@@ -25,14 +25,14 @@ export function Devices({
       <div className="section-page-heading">
         <div>
           <h2>Подключите свет</h2>
-          <p>Нужна LED-лента с WLED в той же сети Wi-Fi, что и Mac.</p>
+          <p>Контроллер NEURAL LIGHT NODE или WLED должен быть в одной сети с Mac.</p>
         </div>
         <button
           className="primary"
           onClick={() => setAdding(true)}
           disabled={devices.length >= 16}
         >
-          <Plus size={16} /> Добавить WLED
+          <Plus size={16} /> Добавить контроллер
         </button>
       </div>
       {!runtime.native && (
@@ -276,7 +276,7 @@ export function Devices({
           </span>
         </div>
         <p className="helper">
-          Эта проверка измеряет только связь с движком на Mac. WLED не
+          Эта проверка измеряет только связь с движком на Mac. UDP не
           подтверждает показ кадра, поэтому задержку самого света нужно измерить
           отдельно.
         </p>

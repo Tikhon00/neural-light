@@ -20,6 +20,13 @@ native/.swiftpm/
 *.tar.gz
 .idea/
 .vscode/
+.venv-firmware/
+__pycache__/
+*.pyc
+firmware/.pio/
+installer/public/firmware/
+installer/dist/
+
 
 # Keep a small, current handoff gallery and reproducible measurement reports.
 /artifacts/*

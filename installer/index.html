@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0b0d10" />
+    <meta name="description" content="Собственная прошивка NEURAL LIGHT NODE для ESP32. Установка по USB из браузера, настройка Wi-Fi и свет из приложения на Mac." />
+    <title>NEURAL LIGHT — прошивка для твоего света</title>
+    <link rel="icon" href="./mark.svg" type="image/svg+xml" />
+    <script type="module" src="./src.ts"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#install">К установке</a>
+    <header class="site-header wrap">
+      <a class="brand" href="https://github.com/Tikhon00/neural-light" aria-label="NEURAL LIGHT, исходный код на GitHub">
+        <span class="brand-mark" aria-hidden="true">NL</span>
+        <span>neural light<span class="brand-detail">node</span></span>
+      </a>
+      <a class="quiet-link" href="https://github.com/Tikhon00/neural-light">Исходный код <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="wrap">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="introduction">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Твоя плата. Твой свет.</p>
+          <h1 id="page-title">Маленькая плата.<br /><span>Большое настроение.</span></h1>
+          <p class="lead">Установи NEURAL LIGHT NODE на ESP32 прямо из браузера. Mac создаёт свет — твоя плата передаёт его ленте.</p>
+          <ol class="journey" aria-label="Три шага до света">
+            <li><span class="step-number" aria-hidden="true">1</span><div><h2>Подключи</h2><p>ESP32 к компьютеру по USB.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">2</span><div><h2>Установи</h2><p>Выбери плату в окне браузера.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">3</span><div><h2>Зажги</h2><p>Настрой Wi-Fi и открой NEURAL LIGHT на Mac.</p></div></li>
+          </ol>
+        </div>
+
+        <section class="install-card" id="install" aria-labelledby="install-title">
+          <div class="card-heading"><h2 id="install-title">Установить прошивку</h2><span class="preview-label">Preview</span></div>
+          <div class="hardware" aria-hidden="true">
+            <div class="light-wash"></div>
+            <svg class="board" viewBox="0 0 380 240" fill="none">
+              <defs>
+                <linearGradient id="metal" x1="114" y1="71" x2="260" y2="175" gradientUnits="userSpaceOnUse"><stop stop-color="#555e64"/><stop offset=".45" stop-color="#282d32"/><stop offset="1" stop-color="#41494e"/></linearGradient>
+                <linearGradient id="socket" x1="60" y1="110" x2="86" y2="140" gradientUnits="userSpaceOnUse"><stop stop-color="#899196"/><stop offset="1" stop-color="#383e45"/></linearGradient>
+                <linearGradient id="signal" x1="40" y1="0" x2="365" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#b8efe1" stop-opacity="0"/><stop offset=".25" stop-color="#b8efe1"/><stop offset="1" stop-color="#b8efe1" stop-opacity="0"/></linearGradient>
+              </defs>
+              <path class="wire" d="M0 126H69M304 126H380" stroke="#343e42" stroke-width="2"/>
+              <path class="signal" d="M0 126H69M304 126H380" stroke="url(#signal)" stroke-width="2"/>
+              <rect x="74" y="57" width="230" height="138" rx="13" fill="#151b1e" stroke="#495358"/>
+              <path d="M83 70H294M83 181H294" stroke="#344044"/>
+              <path d="M102 58V48M122 58V48M142 58V48M162 58V48M182 58V48M202 58V48M222 58V48M242 58V48M262 58V48M282 58V48M102 194V204M122 194V204M142 194V204M162 194V204M182 194V204M202 194V204M222 194V204M242 194V204M262 194V204M282 194V204" stroke="#7b7770" stroke-width="6"/>
+              <rect x="123" y="84" width="126" height="82" rx="5" fill="url(#metal)" stroke="#687174"/>
+              <path d="M258 89H286V99H266V108H286V118H266V128H286V138H266V148H286V157H258" stroke="#716c58" stroke-width="2"/>
+              <rect x="65" y="111" width="28" height="30" rx="5" fill="url(#socket)" stroke="#9ca3a7"/>
+              <rect x="67" y="117" width="9" height="18" rx="4" fill="#0c1013"/>
+              <path d="M100 98H113V111M101 153H114V141M135 174H166M177 174H205M217 174H246" stroke="#465650"/>
+              <rect x="101" y="116" width="11" height="20" rx="2" fill="#242b2f" stroke="#62635c"/>
+              <circle class="board-led-glow" cx="285" cy="175" r="12" fill="#b8efe1" fill-opacity=".08"/>
+              <circle cx="285" cy="175" r="3" fill="#b8efe1"/>
+              <text x="186" y="118" text-anchor="middle" fill="#dce3e5" font-size="10" font-family="ui-monospace, monospace" letter-spacing="1.7">NEURAL LIGHT</text>
+              <text x="186" y="139" text-anchor="middle" fill="#a4b3b8" font-size="8" font-family="ui-monospace, monospace" letter-spacing="3">ESP32</text>
+            </svg>
+            <div class="pixel-line"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <p class="compatibility"><strong>ESP32 DevKit / WROOM</strong><span>Классический ESP32 · flash 4 МБ</span></p>
+          <p class="install-status" id="install-status" role="status" aria-live="polite">Проверяем файлы прошивки…</p>
+          <div id="supported-controls" hidden>
+            <label class="consent"><input type="checkbox" id="erase-consent" /><span>Понимаю: установка заменит текущую прошивку и настройки платы.</span></label>
+            <esp-web-install-button id="web-installer" manifest="./firmware/manifest.json">
+              <button class="primary-button" id="connect-button" slot="activate" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3m0 0-3 3m3-3 3 3M12 16l-5-4V9m5 3 5-4V5"/><circle cx="7" cy="7" r="2"/><path d="M15 3h4v3h-4z"/></svg>Подключить ESP32</button>
+              <span slot="unsupported" class="fallback">Для установки открой эту страницу в Chrome или Edge на компьютере.</span>
+              <span slot="not-allowed" class="fallback">Для установки нужна защищённая страница HTTPS.</span>
+            </esp-web-install-button>
+            <p class="under-button">Сначала питание только от USB, без ленты. Нужен кабель с передачей данных.</p>
+          </div>
+          <div id="unavailable-controls" hidden>
+            <a class="secondary-button" id="browser-link" href="https://www.google.com/chrome/" hidden>Скачать Chrome <span aria-hidden="true">↗</span></a>
+            <button class="secondary-button" id="retry-button" type="button" hidden>Проверить ещё раз</button>
+          </div>
+          <details class="compatibility-details"><summary>Подойдёт ли моя плата и лента?</summary><div><p>Эта версия — для ESP32 DevKit / WROOM с 4 МБ flash. S2, S3, C3, C6 и ESP8266 пока не поддерживаются.</p><p>Лента: WS2812B или SK6812 RGB, 800 кГц, от 1 до 1024 LED. RGBW пока нет. Число LED и контакт DATA выбираются после установки.</p><p>Если сейчас стоит WLED, сохрани нужные настройки перед заменой. Реальная плата ещё не проходила аппаратную проверку — это Preview.</p></div></details>
+          <noscript><p class="fallback">Включи JavaScript, чтобы открыть установщик.</p></noscript>
+        </section>
+      </section>
+
+      <section class="after-install" aria-labelledby="setup-title">
+        <div class="section-heading"><p class="eyebrow">Дальше — пара настроек</p><h2 id="setup-title">Установил? Подключаем свет.</h2></div>
+        <div class="setup-steps">
+          <article><span class="step-number" aria-hidden="true">1</span><h3>Узнай пароль платы</h3><p>В окне установщика открой <strong>Logs &amp; Console</strong> и отправь <code>INFO</code>. В ответе будут имя сети <code>NEURAL-LIGHT-XXXXXX</code> и её пароль.</p><details><summary>Не вижу ответ в консоли</summary><p>Скорость — 115200. Нажми Enter после INFO. Если сеть платы уже выключена, команда <code>SETUP</code> включит её снова.</p></details></article>
+          <article><span class="step-number" aria-hidden="true">2</span><h3>Настрой Wi-Fi и ленту</h3><p>Подключись к сети платы. Открой <a href="http://192.168.4.1/" target="_blank" rel="noopener">192.168.4.1</a>, укажи домашнюю сеть 2,4 ГГц, контакт DATA и число LED.</p><p class="step-note">Пароль домашнего Wi-Fi сохраняется на плате. В этот установщик он не отправляется.</p></article>
+          <article><span class="step-number" aria-hidden="true">3</span><h3>Открой NEURAL LIGHT</h3><p>Верни Mac в домашнюю сеть. В приложении нажми <strong>«Подключить свою» → «Добавить контроллер»</strong>, введи IP платы, выбери DDP и включи «Передавать свет».</p><p class="step-note">Начальный LED — 0, количество — как на плате.</p></article>
+        </div>
+        <div class="guide-link"><span>Первый запуск, подключение и помощь при ошибках</span><a href="https://github.com/Tikhon00/neural-light/blob/main/docs/FIRMWARE.md">Открыть инструкцию <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap"><span>NEURAL LIGHT NODE <span class="footer-divider">/</span> Сделано для твоего света.</span><nav aria-label="Полезные ссылки"><a href="https://github.com/Tikhon00/neural-light/blob/main/docs/FOR-SERGEY.md">Серёга, начни здесь</a><a href="https://esphome.github.io/esp-web-tools/">На базе ESP Web Tools</a></nav></footer>
+  </body>
+</html>

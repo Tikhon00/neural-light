@@ -21,6 +21,8 @@
 - `native/Sources/NeuralRuntime/` — Metal, захват, WebSocket и UDP.
 - `native/Sources/NeuralLightApp/` — AppKit/WKWebView-оболочка.
 - `examples/` — переносимые JSON-сцены, `tests/` и `native/Tests/` — проверки.
+- `firmware/` — собственная прошивка NEURAL LIGHT NODE для классического ESP32. `include/FrameReceiver.h` — переносимый приёмник, `src/main.cpp` — Wi-Fi/HTTP/NVS/LED; `tests/` — проверки с пакетом от настоящего Swift-кодировщика.
+- `installer/` — отдельный веб-установщик ESP Web Tools; `scripts/export-firmware.py` объединяет бинарники, workflow `firmware.yml` публикует GitHub Pages.
 
 Эффекты и mapping реализованы и в TypeScript, и в Swift/Metal. При изменении их поведения проверь `src/engine/effects.ts`, `mapping.ts`, `types.ts` и соответствующие `NeuralCore/Effects.swift`, `Mapping.swift`, `Scene.swift`, `NeuralRuntime/Shaders.metal`. Не меняй только предпросмотр, выдавая это за изменение вывода на контроллер.
 
@@ -32,6 +34,8 @@
 - Кадры проходят вне React state. Не делай setState на каждый кадр; не добавляй неограниченных очередей или тяжёлых выделений памяти в цикл.
 - Яркость 0% сразу гасит выход и отменяет смешивание кадров. Топология и адреса LED не меняются при переключении вида комнаты/схемы.
 - UDP send completion не подтверждает отображение LED. Задержка «звук → фотон» и синхронизация WLED требуют аппаратного измерения.
+- Прошивка NODE принимает строгий DDP-профиль Mac: одинаковая sequence во всех фрагментах кадра, полное покрытие настроенных LED, PUSH на последнем диапазоне. Не объявляй совместимость с произвольным DDP-отправителем. Число LED в программе и на плате должно совпадать.
+- Не включай LED до явной настройки платы; не расширяй GPIO allowlist без проверки конкретной модели. Не выводи пароль домашнего Wi-Fi в HTTP/логи. Не добавляй удалённую прошивку без отдельной задачи. Установщик не должен запрашивать USB или стирать flash автоматически.
 - Сохраняй существующие сцены и настройки; при изменении формата предусмотри совместимость или явную миграцию. Не сбрасывай localStorage ради исправления UI.
 
 ## Дизайн и поведение
@@ -54,6 +58,8 @@ npm run build
 - Swift/Metal/протокол: `npm run native:test` на Mac с Metal; `npm run native:build && npm run test:integration`. Интеграция использует только UDP loopback, не настоящее оборудование.
 - Выпуск локальной сборки: `npm run app:build`. Закрой прежнее окно приложения и открой заново `build/NEURAL LIGHT.app`.
 - Производительность: `npm run bench`; для UI при работающем `npm run dev` — `node scripts/preview-benchmark.mjs`. Не запускай нагрузочные проверки одновременно и не смешивай частоту движка с частотой UI.
+- Прошивка: `npm run firmware:test`, затем в Python-окружении из `firmware/requirements.txt` — `npm run firmware:build` и `npm run firmware:export`. Не запускай команды upload/flash без выбранной пользователем платы.
+- Установщик: `npm run installer:build`, `npm run installer:test`; проверь обычный, недоступный и неподдерживаемый режимы. `installer/public/firmware` генерируется из сборки и не коммитится. Подробности — `docs/FIRMWARE.md`.
 
 В GitHub Actions проверяются TypeScript и сборка приложения на macOS; доступ к GPU на hosted runner не предполагается. Локальные Metal/UI/аппаратные тесты не объявляй выполненными только потому, что CI зелёный.
 
