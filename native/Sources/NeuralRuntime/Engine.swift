@@ -71,12 +71,24 @@ public final class LightEngine {
           }
         }
         let old = scene
-        let topologyChanged =
-          old.count != next.count || old.layout != next.layout
-          || old.customPoints?.count != next.customPoints?.count
-          || zip(old.customPoints ?? [], next.customPoints ?? []).contains {
-            $0.0.x != $0.1.x || $0.0.y != $0.1.y || $0.0.z != $0.1.z
+        let countChanged: Bool = old.count != next.count
+        let layoutChanged: Bool = old.layout != next.layout
+        let customPointCountChanged: Bool = old.customPoints?.count != next.customPoints?.count
+        let structureChanged: Bool = countChanged || layoutChanged || customPointCountChanged
+        let coordinatesChanged: Bool
+        if structureChanged {
+          coordinatesChanged = false
+        } else {
+          let oldPoints: [Point] = old.customPoints ?? []
+          let nextPoints: [Point] = next.customPoints ?? []
+          coordinatesChanged = zip(oldPoints, nextPoints).contains { (pair: (Point, Point)) -> Bool in
+            let xChanged: Bool = pair.0.x != pair.1.x
+            let yChanged: Bool = pair.0.y != pair.1.y
+            let zChanged: Bool = pair.0.z != pair.1.z
+            return xChanged || yChanged || zChanged
           }
+        }
+        let topologyChanged: Bool = structureChanged || coordinatesChanged
         if topologyChanged || next.brightness == 0 {
           transition.cancel()
           // Keep calibration history from replaying a bright or differently
