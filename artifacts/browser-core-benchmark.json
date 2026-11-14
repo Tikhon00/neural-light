@@ -1,0 +1,40 @@
+{
+  "platform": "darwin arm64",
+  "cpu": "Apple M5",
+  "runtime": "v24.18.0",
+  "backend": "TypeScript FFT + CPU effects; excludes browser painting and network",
+  "results": [
+    {
+      "leds": 240,
+      "samples": 300,
+      "p50Ms": 0.09145799999998871,
+      "p95Ms": 0.22458400000002143,
+      "p99Ms": 0.4518749999999727,
+      "within60FPSBudget": true
+    },
+    {
+      "leds": 1000,
+      "samples": 300,
+      "p50Ms": 0.23787500000003092,
+      "p95Ms": 0.2981670000000065,
+      "p99Ms": 0.37474999999994907,
+      "within60FPSBudget": true
+    },
+    {
+      "leds": 4096,
+      "samples": 300,
+      "p50Ms": 0.8582499999999982,
+      "p95Ms": 1.3623750000000427,
+      "p99Ms": 1.990291999999954,
+      "within60FPSBudget": true
+    },
+    {
+      "leds": 8192,
+      "samples": 300,
+      "p50Ms": 1.6869580000000042,
+      "p95Ms": 2.1479170000000067,
+      "p99Ms": 2.50654099999997,
+      "within60FPSBudget": true
+    }
+  ]
+}

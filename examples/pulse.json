@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "name": "В ритме",
+  "effect": "pulse",
+  "palette": 1,
+  "brightness": 0.72,
+  "speed": 0.8,
+  "spread": 0.6,
+  "sensitivity": 1,
+  "count": 240,
+  "layout": "arch",
+  "source": "demo",
+  "playing": true,
+  "timelineEnabled": false,
+  "duration": 32,
+  "layers": [
+    {
+      "effect": "pulse",
+      "gain": 1,
+      "audio": true
+    }
+  ],
+  "clips": [
+    {
+      "id": "c1",
+      "name": "Северное сияние",
+      "start": 0,
+      "duration": 12,
+      "effect": "aurora",
+      "palette": 0
+    },
+    {
+      "id": "c2",
+      "name": "Глубокий океан",
+      "start": 12,
+      "duration": 10,
+      "effect": "ocean",
+      "palette": 2
+    },
+    {
+      "id": "c3",
+      "name": "Пульс",
+      "start": 22,
+      "duration": 10,
+      "effect": "pulse",
+      "palette": 1
+    }
+  ]
+}

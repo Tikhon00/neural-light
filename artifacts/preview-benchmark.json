@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-14T14:33:29.225Z",
+  "renderer": "webgl",
+  "graphics": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+  "viewport": "1440×900",
+  "browser": "157.0.8103.51",
+  "results": [
+    {
+      "count": 240,
+      "glass": false,
+      "frames": 180,
+      "fps": 60.002000066668884,
+      "p50Ms": 16.699999999999818,
+      "p95Ms": 16.700000000000273,
+      "framesOver25Ms": 0
+    },
+    {
+      "count": 240,
+      "glass": true,
+      "frames": 180,
+      "fps": 60.00400026668444,
+      "p50Ms": 16.699999999999818,
+      "p95Ms": 16.700000000000728,
+      "framesOver25Ms": 0
+    },
+    {
+      "count": 8192,
+      "glass": false,
+      "frames": 180,
+      "fps": 60,
+      "p50Ms": 16.69999999999891,
+      "p95Ms": 16.799999999999272,
+      "framesOver25Ms": 0
+    },
+    {
+      "count": 8192,
+      "glass": true,
+      "frames": 180,
+      "fps": 60.0020000666689,
+      "p50Ms": 16.69999999999891,
+      "p95Ms": 16.799999999999272,
+      "framesOver25Ms": 0
+    }
+  ]
+}

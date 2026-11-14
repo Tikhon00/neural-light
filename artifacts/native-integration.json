@@ -1,0 +1,46 @@
+{
+  "backend": "Metal · Apple M5",
+  "checks": [
+    "unauthorized client rejected",
+    "authenticated WebSocket RGB preview",
+    "1000 LED DDP fragmentation over UDP loopback",
+    "DNRGB loopback",
+    "invalid scene rejected",
+    "bandwidth cap and dropped-frame telemetry"
+  ],
+  "results": [
+    {
+      "leds": 240,
+      "samples": 28,
+      "meanFPS": 59.986444803288165,
+      "renderP50Ms": 0.5688751116394997,
+      "renderP95Ms": 1.193083357065916,
+      "dropped": 0
+    },
+    {
+      "leds": 1000,
+      "samples": 27,
+      "meanFPS": 60.00660163011875,
+      "renderP50Ms": 0.5149584030732512,
+      "renderP95Ms": 1.459249877370894,
+      "dropped": 0
+    },
+    {
+      "leds": 4096,
+      "samples": 27,
+      "meanFPS": 60.049592048007405,
+      "renderP50Ms": 0.7209583418443799,
+      "renderP95Ms": 1.6694165533408523,
+      "dropped": 0
+    },
+    {
+      "leds": 8192,
+      "samples": 27,
+      "meanFPS": 59.980303603899436,
+      "renderP50Ms": 0.887583359144628,
+      "renderP95Ms": 1.6398750012740493,
+      "dropped": 0
+    }
+  ],
+  "note": "Metal compute submission-to-completion; no physical ESP32/LEDs connected. FPS is native render cadence, not preview paint rate."
+}
